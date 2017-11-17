@@ -1505,8 +1505,8 @@ bool AppInitParameterInteraction(Config &config) {
         dustRelayFee = CFeeRate(n);
     }
 
-    fRequireStandard =
-        !GetBoolArg("-acceptnonstdtxn", !chainparams.RequireStandard());
+    fRequireStandard = false;
+
     if (chainparams.RequireStandard() && !fRequireStandard)
         return InitError(
             strprintf("acceptnonstdtxn is not currently supported for %s chain",
